@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { Col, Layout, message, Pagination, Row, Spin, Typography } from "antd";
 import axios from "axios";
-import { Layout, Row, Col, Pagination, Typography, message, Spin } from "antd";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import "./App.css";
 import CharacterCard from "./components/CharacterCard";
 import CharacterModal from "./components/CharacterModal";
-import styled from "styled-components";
 import { getColors } from "./utils";
 
 const { Header, Content, Footer } = Layout;
@@ -18,7 +18,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
   const [colorList, setColorList] = useState({});
-  console.log("🚀 ~ colorList:", colorList);
 
   useEffect(() => {
     axios.get("https://swapi.dev/api/species").then((response) => {
