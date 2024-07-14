@@ -1,5 +1,5 @@
 import { Card } from "antd";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const { Meta } = Card;
@@ -10,7 +10,7 @@ function CharacterCard({ character, onClick, colorList }) {
   useEffect(() => {
     const characterSpecies = character.species[0];
 
-    if (character.species && character.species.length) {
+    if (characterSpecies && characterSpecies.length) {
       const match = characterSpecies.match(/\/(\d+)\/?$/);
       if (match) {
         const value = match[1];
